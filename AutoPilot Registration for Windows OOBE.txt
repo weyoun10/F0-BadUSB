@@ -1,0 +1,10 @@
+REM Title: AutoPilot Registration for Windows OOBE
+REM Author: Weyoun10
+
+SHIFT F10
+DELAY 100
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+PowerShell.exe -ExecutionPolicy Bypass
+Install-Script -name Get-WindowsAutopilotInfo -Force
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
+Get-WindowsAutopilotInfo -Online
